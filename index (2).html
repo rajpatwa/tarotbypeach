@@ -1,0 +1,1768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peach Tarot - Professional Tarot Reading & Spiritual Guidance</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #ff6b9d;
+            --secondary: #c44569;
+            --accent: #ffa07a;
+            --light-bg: #fff9f5;
+            --white: #ffffff;
+            --dark: #2d1b2e;
+            --gray: #6b5b6e;
+            --light-gray: #f5f0f6;
+            --border: #e8d5e0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--light-bg);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--white);
+            box-shadow: 0 2px 20px rgba(255, 107, 157, 0.1);
+            z-index: 1000;
+            transition: all 0.3s;
+        }
+
+        .navbar {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            font-size: 2rem;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 1rem;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 3px;
+            transition: all 0.3s;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            padding: 80px 2rem;
+            background: linear-gradient(135deg, #fff5f0 0%, #ffe8f5 100%);
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero .tagline {
+            font-size: 1.4rem;
+            color: var(--gray);
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 107, 157, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(255, 107, 157, 0.4);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--gray);
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(255, 107, 157, 0.2);
+            border-color: var(--primary);
+        }
+
+        .feature-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-card h3 {
+            color: var(--dark);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card p {
+            color: var(--gray);
+            line-height: 1.8;
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 35px rgba(255, 107, 157, 0.25);
+        }
+
+        .service-header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 2.5rem;
+            text-align: center;
+        }
+
+        .service-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-header h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .service-price {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-top: 1rem;
+        }
+
+        .service-body {
+            padding: 2rem;
+        }
+
+        .service-body ul {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-body ul li {
+            padding: 0.5rem 0;
+            color: var(--gray);
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .service-body ul li:before {
+            content: "✓";
+            color: var(--primary);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        /* REDESIGNED CARD DRAWING SECTION */
+        #card-reading {
+            background: linear-gradient(135deg, #ffeef5 0%, #fff9f5 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        #card-reading::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: radial-gradient(circle, rgba(255, 107, 157, 0.05) 1px, transparent 1px);
+            background-size: 30px 30px;
+            pointer-events: none;
+        }
+
+        .card-reading-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Spread Selection */
+        .spread-selector {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        .spread-btn {
+            padding: 1rem 2rem;
+            background: white;
+            border: 3px solid var(--border);
+            border-radius: 15px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--dark);
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .spread-btn:hover {
+            transform: translateY(-3px);
+            border-color: var(--primary);
+            box-shadow: 0 6px 20px rgba(255, 107, 157, 0.2);
+        }
+
+        .spread-btn.active {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-color: var(--secondary);
+            box-shadow: 0 6px 25px rgba(255, 107, 157, 0.4);
+        }
+
+        .spread-btn .spread-count {
+            display: block;
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-top: 0.3rem;
+        }
+
+        /* Draw Instruction */
+        .draw-instruction {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 2.5rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(255, 107, 157, 0.1);
+        }
+
+        /* Card Deck */
+        .card-deck {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+            min-height: 400px;
+            align-items: center;
+        }
+
+        /* Individual Tarot Card */
+        .tarot-card {
+            width: 180px;
+            height: 300px;
+            perspective: 1000px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .tarot-card:hover {
+            transform: scale(1.05);
+        }
+
+        .card-inner {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .tarot-card.flipped .card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .card-back,
+        .card-face {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            backface-visibility: hidden;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-back {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 4px solid white;
+        }
+
+        .card-back::before {
+            content: '🔮';
+            font-size: 4rem;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .card-face {
+            background: linear-gradient(135deg, #ffffff 0%, #fff5f9 100%);
+            transform: rotateY(180deg);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            border: 4px solid var(--primary);
+        }
+
+        .card-face h3 {
+            font-size: 1.2rem;
+            color: var(--dark);
+            text-align: center;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 0.5rem;
+        }
+
+        .card-symbol {
+            font-size: 4rem;
+            margin: 1rem 0;
+        }
+
+        .card-meaning {
+            font-size: 0.9rem;
+            color: var(--gray);
+            text-align: center;
+            line-height: 1.4;
+        }
+
+        .card-position-label {
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            white-space: nowrap;
+            box-shadow: 0 3px 10px rgba(255, 107, 157, 0.3);
+        }
+
+        /* Reading Result */
+        .reading-result {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            margin-top: 3rem;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .reading-result.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reading-result h3 {
+            font-size: 2rem;
+            color: var(--dark);
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid var(--primary);
+        }
+
+        .card-interpretation {
+            background: var(--light-bg);
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
+            border-left: 5px solid var(--primary);
+        }
+
+        .card-interpretation h4 {
+            color: var(--primary);
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .card-interpretation p {
+            color: var(--gray);
+            line-height: 1.8;
+        }
+
+        .reset-btn-container {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+
+        .about-image {
+            text-align: center;
+            font-size: 15rem;
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .about-text p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .about-highlights {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .highlight-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .highlight-item .icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight-item h4 {
+            color: var(--dark);
+            font-size: 1.1rem;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            max-width: 600px;
+            margin: 3rem auto;
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--border);
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Reviews Section */
+        .reviews-section {
+            background: linear-gradient(135deg, #fff9f5 0%, #ffeef5 100%);
+            position: relative;
+        }
+
+        .reviews-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .review-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s;
+            position: relative;
+            border: 2px solid transparent;
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 35px rgba(255, 107, 157, 0.2);
+            border-color: var(--primary);
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .reviewer-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            flex-shrink: 0;
+        }
+
+        .reviewer-info h4 {
+            color: var(--dark);
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .review-rating {
+            color: #ffd700;
+            font-size: 1.1rem;
+        }
+
+        .review-text {
+            color: var(--gray);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .review-date {
+            color: var(--gray);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        .review-quote {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            font-size: 3rem;
+            color: var(--primary);
+            opacity: 0.2;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 60px 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 1.5rem;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .card-deck {
+                gap: 1.5rem;
+            }
+
+            .tarot-card {
+                width: 160px;
+                height: 270px;
+            }
+
+            .reading-result {
+                padding: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background: var(--white);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+                padding: 2rem 0;
+                z-index: 999;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .tagline {
+                font-size: 1.1rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                font-size: 10rem;
+            }
+
+            .about-highlights {
+                grid-template-columns: 1fr;
+            }
+
+            /* Card responsiveness for tablets */
+            .card-deck {
+                gap: 1.2rem;
+                min-height: 320px;
+            }
+
+            .tarot-card {
+                width: 140px;
+                height: 240px;
+            }
+
+            .card-face {
+                padding: 1.2rem;
+            }
+
+            .card-symbol {
+                font-size: 3rem !important;
+                margin: 0.8rem 0;
+            }
+
+            .card-face h3 {
+                font-size: 1rem !important;
+                margin-bottom: 0.8rem;
+            }
+
+            .card-meaning {
+                font-size: 0.75rem !important;
+                line-height: 1.3;
+            }
+
+            .card-position-label {
+                font-size: 0.75rem;
+                padding: 0.3rem 0.8rem;
+                top: -28px;
+            }
+
+            .spread-selector {
+                gap: 0.8rem;
+            }
+
+            .spread-btn {
+                padding: 0.9rem 1.6rem;
+                font-size: 1rem;
+            }
+
+            .spread-btn .spread-count {
+                font-size: 0.85rem;
+            }
+
+            .reading-result {
+                padding: 2rem 1.5rem;
+            }
+
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+
+            .contact-form {
+                padding: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .tagline {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .section-subtitle {
+                font-size: 1rem;
+                padding: 0 1rem;
+            }
+
+            /* Improved card responsiveness for mobile */
+            .card-deck {
+                gap: 1rem;
+                min-height: 280px;
+                padding: 0 0.5rem;
+            }
+
+            .tarot-card {
+                width: 110px;
+                height: 190px;
+            }
+
+            .card-face {
+                padding: 1rem 0.8rem;
+            }
+
+            .card-symbol {
+                font-size: 2.5rem !important;
+                margin: 0.5rem 0;
+            }
+
+            .card-face h3 {
+                font-size: 0.85rem !important;
+                margin-bottom: 0.5rem;
+                padding-bottom: 0.4rem;
+            }
+
+            .card-meaning {
+                font-size: 0.65rem !important;
+                line-height: 1.2;
+            }
+
+            .card-position-label {
+                font-size: 0.7rem;
+                padding: 0.25rem 0.6rem;
+                top: -26px;
+            }
+
+            .card-back::before {
+                font-size: 3rem;
+            }
+
+            .spread-btn {
+                padding: 0.7rem 1.2rem;
+                font-size: 0.95rem;
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .spread-btn .spread-count {
+                font-size: 0.8rem;
+            }
+
+            .spread-selector {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .draw-instruction {
+                font-size: 1rem;
+                padding: 0.8rem;
+            }
+
+            .reading-result {
+                padding: 1.5rem 1rem;
+            }
+
+            .reading-result h3 {
+                font-size: 1.5rem;
+            }
+
+            .card-interpretation {
+                padding: 1.2rem;
+                margin-bottom: 1rem;
+            }
+
+            .card-interpretation h4 {
+                font-size: 1.1rem;
+            }
+
+            .btn {
+                padding: 0.9rem 2rem;
+                font-size: 1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero-buttons .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .stat-number {
+                font-size: 2.5rem;
+            }
+
+            .contact-form {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 380px) {
+            /* Extra small devices */
+            .tarot-card {
+                width: 95px;
+                height: 165px;
+            }
+
+            .card-symbol {
+                font-size: 2rem !important;
+            }
+
+            .card-face h3 {
+                font-size: 0.75rem !important;
+            }
+
+            .card-meaning {
+                font-size: 0.6rem !important;
+            }
+
+            .card-deck {
+                gap: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <nav class="navbar">
+            <a href="#" class="logo">
+                <span>🍑</span>
+                Peach Tarot
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#card-reading">Draw Cards</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>✨ Discover Your Path with Peach Tarot ✨</h1>
+            <p class="tagline">Illuminating your journey through the wisdom of the cards</p>
+            <div class="hero-buttons">
+                <a href="#card-reading" class="btn btn-primary">🔮 Draw Your Cards</a>
+                <a href="#contact" class="btn btn-secondary">📅 Book a Reading</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features">
+        <div class="container">
+            <h2 class="section-title">Why Choose Peach Tarot?</h2>
+            <p class="section-subtitle">Experience the perfect blend of ancient wisdom and modern insight</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🌟</div>
+                    <h3>Authentic Readings</h3>
+                    <p>Genuine, heartfelt interpretations that connect with your unique energy and life journey.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">💫</div>
+                    <h3>Expert Guidance</h3>
+                    <p>Years of experience in tarot, astrology, and spiritual counseling to guide you forward.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔮</div>
+                    <h3>Personalized Approach</h3>
+                    <p>Every reading is tailored to your specific questions, concerns, and spiritual needs.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🌙</div>
+                    <h3>Safe Space</h3>
+                    <p>A judgment-free, compassionate environment where you can explore freely and openly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" style="background: white;">
+        <div class="container">
+            <h2 class="section-title">Tarot Reading Services</h2>
+            <p class="section-subtitle">Choose the reading that resonates with your soul</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">🌸</div>
+                        <h3>Single Question</h3>
+                        <div class="service-price">Quick Insight</div>
+                    </div>
+                    <div class="service-body">
+                        <ul>
+                            <li>One focused question</li>
+                            <li>3-card spread</li>
+                            <li>Clear, direct guidance</li>
+                            <li>Perfect for quick clarity</li>
+                        </ul>
+                        <button class="btn btn-primary" onclick="bookSession('Single Question Reading')" style="width: 100%;">Book Now</button>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">🌺</div>
+                        <h3>Life Path Reading</h3>
+                        <div class="service-price">Deep Dive</div>
+                    </div>
+                    <div class="service-body">
+                        <ul>
+                            <li>Comprehensive life guidance</li>
+                            <li>Celtic Cross spread</li>
+                            <li>Multiple life areas explored</li>
+                            <li>Detailed interpretation</li>
+                        </ul>
+                        <button class="btn btn-primary" onclick="bookSession('Life Path Reading')" style="width: 100%;">Book Now</button>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">🌹</div>
+                        <h3>Relationship Reading</h3>
+                        <div class="service-price">Heart Matters</div>
+                    </div>
+                    <div class="service-body">
+                        <ul>
+                            <li>Love & relationships focus</li>
+                            <li>Partner compatibility</li>
+                            <li>Connection dynamics</li>
+                            <li>Guidance for growth</li>
+                        </ul>
+                        <button class="btn btn-primary" onclick="bookSession('Relationship Reading')" style="width: 100%;">Book Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REDESIGNED CARD DRAWING SECTION -->
+    <section id="card-reading">
+        <div class="container">
+            <h2 class="section-title">🔮 Draw Your Cards 🔮</h2>
+            <p class="section-subtitle">Connect with the cards and receive guidance for your journey</p>
+            
+            <div class="card-reading-container">
+                <!-- Spread Selection -->
+                <div class="spread-selector">
+                    <button class="spread-btn active" onclick="selectSpread('one', 1)">
+                        <div>Single Card</div>
+                        <span class="spread-count">Quick Insight</span>
+                    </button>
+                    <button class="spread-btn" onclick="selectSpread('three', 3)">
+                        <div>Three Cards</div>
+                        <span class="spread-count">Past • Present • Future</span>
+                    </button>
+                    <button class="spread-btn" onclick="selectSpread('celtic', 5)">
+                        <div>Celtic Cross</div>
+                        <span class="spread-count">Comprehensive Reading</span>
+                    </button>
+                </div>
+
+                <!-- Draw Instruction -->
+                <div class="draw-instruction" id="drawInstruction">
+                    Click the card to reveal your reading
+                </div>
+
+                <!-- Card Deck -->
+                <div class="card-deck" id="cardDeck"></div>
+
+                <!-- Reading Result -->
+                <div id="readingResult" class="reading-result"></div>
+
+                <!-- Reset Button -->
+                <div class="reset-btn-container">
+                    <button class="btn btn-primary" onclick="resetReading()" id="resetBtn" style="display: none;">
+                        ✨ Draw New Cards ✨
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">500+</span>
+                    <div class="stat-label">Happy Clients</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">5+</span>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">1000+</span>
+                    <div class="stat-label">Readings Given</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">98%</span>
+                    <div class="stat-label">Satisfaction Rate</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="reviews-section">
+        <div class="container">
+            <h2 class="section-title">What Clients Say</h2>
+            <p class="section-subtitle">Hear from those who've found clarity and guidance</p>
+            
+            <div class="reviews-container">
+                <div class="reviews-grid">
+                    <div class="review-card">
+                        <div class="review-quote">"</div>
+                        <div class="review-header">
+                            <div class="reviewer-avatar">🌸</div>
+                            <div class="reviewer-info">
+                                <h4>Sarah M.</h4>
+                                <div class="review-rating">⭐⭐⭐⭐⭐</div>
+                            </div>
+                        </div>
+                        <p class="review-text">
+                            "The reading was incredibly accurate and provided the clarity I desperately needed. The insights about my career path were spot-on and gave me the confidence to make a major life decision. Highly recommend!"
+                        </p>
+                        <div class="review-date">2 weeks ago</div>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="review-quote">"</div>
+                        <div class="review-header">
+                            <div class="reviewer-avatar">💫</div>
+                            <div class="reviewer-info">
+                                <h4>Priya K.</h4>
+                                <div class="review-rating">⭐⭐⭐⭐⭐</div>
+                            </div>
+                        </div>
+                        <p class="review-text">
+                            "Such a compassionate and insightful reader! The relationship reading helped me understand my patterns and gave me practical guidance. I felt truly heard and supported throughout the session."
+                        </p>
+                        <div class="review-date">1 month ago</div>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="review-quote">"</div>
+                        <div class="review-header">
+                            <div class="reviewer-avatar">🌟</div>
+                            <div class="reviewer-info">
+                                <h4>Michael R.</h4>
+                                <div class="review-rating">⭐⭐⭐⭐⭐</div>
+                            </div>
+                        </div>
+                        <p class="review-text">
+                            "I was skeptical at first, but this reading completely changed my perspective. The cards revealed insights about my business that were incredibly relevant. Amazing experience!"
+                        </p>
+                        <div class="review-date">3 weeks ago</div>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="review-quote">"</div>
+                        <div class="review-header">
+                            <div class="reviewer-avatar">🌺</div>
+                            <div class="reviewer-info">
+                                <h4>Lisa T.</h4>
+                                <div class="review-rating">⭐⭐⭐⭐⭐</div>
+                            </div>
+                        </div>
+                        <p class="review-text">
+                            "The most accurate tarot reading I've ever received! The guidance was both gentle and profound. I left feeling empowered and with a clear direction forward. Thank you!"
+                        </p>
+                        <div class="review-date">2 months ago</div>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="review-quote">"</div>
+                        <div class="review-header">
+                            <div class="reviewer-avatar">✨</div>
+                            <div class="reviewer-info">
+                                <h4>Anjali S.</h4>
+                                <div class="review-rating">⭐⭐⭐⭐⭐</div>
+                            </div>
+                        </div>
+                        <p class="review-text">
+                            "Beautiful energy and incredible intuition! The Celtic Cross reading provided deep insights into my life path. Every card resonated deeply with my current situation. Absolutely wonderful!"
+                        </p>
+                        <div class="review-date">1 week ago</div>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="review-quote">"</div>
+                        <div class="review-header">
+                            <div class="reviewer-avatar">🌙</div>
+                            <div class="reviewer-info">
+                                <h4>David L.</h4>
+                                <div class="review-rating">⭐⭐⭐⭐⭐</div>
+                            </div>
+                        </div>
+                        <p class="review-text">
+                            "Professional, insightful, and genuinely caring. The reading helped me navigate a difficult transition period. I appreciated the honest yet compassionate approach. Will definitely book again!"
+                        </p>
+                        <div class="review-date">3 weeks ago</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" style="background: white;">
+        <div class="container">
+            <h2 class="section-title">About Peach Tarot</h2>
+            
+            <div class="about-content">
+                <div class="about-image">🍑</div>
+                <div class="about-text">
+                    <h3>Your Spiritual Guide</h3>
+                    <p>Welcome! I'm here to help you navigate life's questions through the ancient art of tarot reading. With years of practice and a deep connection to the cards, I offer compassionate, insightful guidance for wherever you are on your journey.</p>
+                    
+                    <p>Whether you're facing a crossroads, seeking clarity, or simply curious about what the universe has to say, the cards are here to illuminate your path forward.</p>
+                    
+                    <div class="about-highlights">
+                        <div class="highlight-item">
+                            <div class="icon">📚</div>
+                            <h4>5+ Years Experience</h4>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="icon">💝</div>
+                            <h4>500+ Readings</h4>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="icon">⭐</div>
+                            <h4>Certified Reader</h4>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="icon">🌈</div>
+                            <h4>LGBTQ+ Friendly</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Book Your Reading</h2>
+            <p class="section-subtitle">Ready to receive guidance? Let's connect!</p>
+            
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <label for="name">Your Name *</label>
+                    <input type="text" id="name" name="name" required placeholder="Enter your name">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="your.email@example.com">
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="+977 98XXXXXXXX">
+                </div>
+                
+                <div class="form-group">
+                    <label for="readingType">Reading Type *</label>
+                    <select id="readingType" name="readingType" required>
+                        <option value="">Select a reading type</option>
+                        <option value="Single Question Reading">Single Question Reading</option>
+                        <option value="Life Path Reading">Life Path Reading</option>
+                        <option value="Relationship Reading">Relationship Reading</option>
+                        <option value="Custom Reading">Custom Reading</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Your Message *</label>
+                    <textarea id="message" name="message" required placeholder="Tell me what you'd like guidance on..."></textarea>
+                </div>
+                
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Send via WhatsApp 💬</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>🍑 Peach Tarot</h3>
+                <p>Illuminating your path through spiritual guidance and the wisdom of tarot.</p>
+                <div class="social-links">
+                    <a href="#" title="Instagram">📷</a>
+                    <a href="#" title="Facebook">📘</a>
+                    <a href="https://wa.me/9779826660865" title="WhatsApp">💬</a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#card-reading">Draw Cards</a></li>
+                    <li><a href="#reviews">Reviews</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="#services">Single Question</a></li>
+                    <li><a href="#services">Life Path Reading</a></li>
+                    <li><a href="#services">Relationship Reading</a></li>
+                    <li><a href="#services">Custom Readings</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <ul>
+                    <li>📱 WhatsApp: +977 9826660865</li>
+                    <li>📍 Kathmandu, Nepal</li>
+                    <li>🕐 Available 7 days a week</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 Peach Tarot. All rights reserved. ✨</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const menu = document.querySelector('.nav-menu');
+            const hamburger = document.querySelector('.hamburger');
+            menu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        }
+
+        function closeMenu() {
+            const menu = document.querySelector('.nav-menu');
+            const hamburger = document.querySelector('.hamburger');
+            menu.classList.remove('active');
+            hamburger.classList.remove('active');
+        }
+
+        // Tarot Card Data
+        const tarotCards = [
+            { name: "The Fool", symbol: "🌟", meaning: "New beginnings, innocence, spontaneity, free spirit" },
+            { name: "The Magician", symbol: "🪄", meaning: "Manifestation, resourcefulness, power, inspired action" },
+            { name: "The High Priestess", symbol: "🌙", meaning: "Intuition, sacred knowledge, divine feminine, subconscious" },
+            { name: "The Empress", symbol: "👑", meaning: "Femininity, beauty, nature, abundance, nurturing" },
+            { name: "The Emperor", symbol: "⚜️", meaning: "Authority, structure, control, fatherhood" },
+            { name: "The Hierophant", symbol: "🕊️", meaning: "Spiritual wisdom, tradition, conformity, education" },
+            { name: "The Lovers", symbol: "💕", meaning: "Love, harmony, relationships, values alignment" },
+            { name: "The Chariot", symbol: "🏆", meaning: "Control, willpower, success, determination" },
+            { name: "Strength", symbol: "🦁", meaning: "Courage, inner strength, compassion, patience" },
+            { name: "The Hermit", symbol: "🔦", meaning: "Soul searching, introspection, inner guidance" },
+            { name: "Wheel of Fortune", symbol: "☸️", meaning: "Change, cycles, fate, turning point" },
+            { name: "Justice", symbol: "⚖️", meaning: "Justice, fairness, truth, law, accountability" },
+            { name: "The Hanged Man", symbol: "🙃", meaning: "Pause, surrender, letting go, new perspective" },
+            { name: "Death", symbol: "🦋", meaning: "Endings, transformation, transition, letting go" },
+            { name: "Temperance", symbol: "⚗️", meaning: "Balance, moderation, patience, purpose" },
+            { name: "The Devil", symbol: "😈", meaning: "Shadow self, attachment, restriction, materialism" },
+            { name: "The Tower", symbol: "⚡", meaning: "Sudden change, upheaval, revelation, awakening" },
+            { name: "The Star", symbol: "⭐", meaning: "Hope, faith, purpose, renewal, spirituality" },
+            { name: "The Moon", symbol: "🌙", meaning: "Illusion, fear, anxiety, subconscious, intuition" },
+            { name: "The Sun", symbol: "☀️", meaning: "Positivity, fun, warmth, success, vitality" },
+            { name: "Judgement", symbol: "📯", meaning: "Reflection, reckoning, inner calling, absolution" },
+            { name: "The World", symbol: "🌍", meaning: "Completion, accomplishment, travel, fulfillment" }
+        ];
+
+        const spreadInterpretations = {
+            one: ["Your Current Energy"],
+            three: ["Past", "Present", "Future"],
+            celtic: ["Present Situation", "Challenge", "Past Influence", "Future Outcome", "Higher Power"]
+        };
+
+        let currentSpread = 'one';
+        let cardsToDraws = 1;
+        let drawnCards = [];
+
+        // WhatsApp number
+        const whatsappNumber = '9779826660865';
+
+        // Card Drawing Functions
+        function selectSpread(spreadType, numCards) {
+            currentSpread = spreadType;
+            cardsToDraws = numCards;
+            
+            document.querySelectorAll('.spread-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.closest('.spread-btn').classList.add('active');
+            
+            initializeDeck();
+        }
+
+        function initializeDeck() {
+            const deck = document.getElementById('cardDeck');
+            deck.innerHTML = '';
+            drawnCards = [];
+            
+            const shuffledCards = [...tarotCards].sort(() => Math.random() - 0.5);
+            
+            for (let i = 0; i < cardsToDraws; i++) {
+                const cardWrapper = document.createElement('div');
+                cardWrapper.style.position = 'relative';
+                
+                const positionLabel = document.createElement('div');
+                positionLabel.className = 'card-position-label';
+                positionLabel.textContent = spreadInterpretations[currentSpread][i];
+                cardWrapper.appendChild(positionLabel);
+                
+                const card = createCard(shuffledCards[i], i);
+                cardWrapper.appendChild(card);
+                deck.appendChild(cardWrapper);
+            }
+            
+            document.getElementById('readingResult').classList.remove('show');
+            document.getElementById('resetBtn').style.display = 'none';
+            document.getElementById('drawInstruction').textContent = 
+                cardsToDraws === 1 ? 'Click the card to reveal your reading' : `Click all ${cardsToDraws} cards to reveal your reading`;
+        }
+
+        function createCard(cardData, index) {
+            const card = document.createElement('div');
+            card.className = 'tarot-card';
+            
+            card.innerHTML = `
+                <div class="card-inner">
+                    <div class="card-back"></div>
+                    <div class="card-face">
+                        <h3>${cardData.name}</h3>
+                        <div class="card-symbol">${cardData.symbol}</div>
+                        <div class="card-meaning">${cardData.meaning}</div>
+                    </div>
+                </div>
+            `;
+            
+            card.addEventListener('click', () => {
+                if (!card.classList.contains('flipped')) {
+                    card.classList.add('flipped');
+                    drawnCards.push({ ...cardData, position: spreadInterpretations[currentSpread][index] });
+                    
+                    if (drawnCards.length === cardsToDraws) {
+                        setTimeout(() => showReading(), 1000);
+                    }
+                }
+            });
+            
+            return card;
+        }
+
+        function showReading() {
+            const resultDiv = document.getElementById('readingResult');
+            let html = '<h3>✨ Your Reading ✨</h3>';
+            
+            drawnCards.forEach((card) => {
+                html += `
+                    <div class="card-interpretation">
+                        <h4>${card.position}: ${card.name}</h4>
+                        <p>${card.meaning}</p>
+                    </div>
+                `;
+            });
+            
+            resultDiv.innerHTML = html;
+            resultDiv.classList.add('show');
+            document.getElementById('resetBtn').style.display = 'inline-block';
+            document.getElementById('drawInstruction').textContent = 'Scroll down to see your complete interpretation';
+        }
+
+        function resetReading() {
+            initializeDeck();
+            document.getElementById('readingResult').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        // Book Session Function
+        function bookSession(sessionType) {
+            const message = `Hello Peach Tarot! 🍑\n\nI would like to book a session:\n\n📖 Reading Type: ${sessionType}\n\nPlease let me know the available time slots and pricing.\n\nThank you! ✨`;
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
+        }
+
+        // Contact Form Submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const readingType = document.getElementById('readingType').value;
+            const message = document.getElementById('message').value;
+
+            let whatsappMessage = `Hello Peach Tarot! 🍑\n\n📋 BOOKING REQUEST\n\n`;
+            whatsappMessage += `👤 Name: ${name}\n`;
+            
+            if (email) {
+                whatsappMessage += `📧 Email: ${email}\n`;
+            }
+            
+            if (phone) {
+                whatsappMessage += `📱 Phone: ${phone}\n`;
+            }
+            
+            whatsappMessage += `\n📖 Reading Type: ${readingType}\n`;
+            whatsappMessage += `\n💬 Message:\n${message}\n\n`;
+            whatsappMessage += `Looking forward to your guidance! ✨`;
+
+            const encodedMessage = encodeURIComponent(whatsappMessage);
+            window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
+
+            this.reset();
+        });
+
+        // Smooth scroll and close menu on link click
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+                closeMenu();
+            });
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.boxShadow = '0 2px 30px rgba(255, 107, 157, 0.15)';
+            } else {
+                header.style.boxShadow = '0 2px 20px rgba(255, 107, 157, 0.1)';
+            }
+        });
+
+        // Initialize deck on page load
+        window.addEventListener('load', function() {
+            initializeDeck();
+        });
+    </script>
+</body>
+</html>
